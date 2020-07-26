@@ -12,12 +12,18 @@ class TodoListViewController: UITableViewController {
 
     var itemArray = ["Find", "Buy Eggos", "Destroy Demogorgon"]
 
+    let defaults =  UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        if let items = defaults.array(forKey: "TodoListArray") as? [String] {
+            itemArray = items
+        }
+
     }
 
-    //MARK - Tableview Datasource Methods
+    //MARK: Tableview Datasource Methods
 
     // 行数を指定するメソッド（必須）
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,7 +40,7 @@ class TodoListViewController: UITableViewController {
         return cell
     }
 
-    //MARK - Tableview Delegate Methods
+    //MARK: Tableview Delegate Methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -49,7 +55,7 @@ class TodoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    // MARK - 新しいタスクの追加
+    // MARK: 新しいタスクの追加
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
 
@@ -60,6 +66,10 @@ class TodoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // AlertのAdd Itemボタンを押した時の動作
             self.itemArray.append(textField.text!)
+
+            // UserDefaultsにitemArrayを保存
+            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+
             self.tableView.reloadData()
         }
 
