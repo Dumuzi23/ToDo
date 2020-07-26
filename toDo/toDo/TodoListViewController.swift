@@ -10,7 +10,7 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
 
-    let itemArray = ["Find", "Buy Eggos", "Destroy Demogorgon"]
+    var itemArray = ["Find", "Buy Eggos", "Destroy Demogorgon"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,31 @@ class TodoListViewController: UITableViewController {
 
         // セルが選択された後、選択状態が解除されるようにする
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    // MARK - 新しいタスクの追加
+
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+
+        var textField = UITextField()
+
+        let alert = UIAlertController(title: "Add New Today Item", message: "", preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            // AlertのAdd Itemボタンを押した時の動作
+            self.itemArray.append(textField.text!)
+            self.tableView.reloadData()
+        }
+
+        // Alertにテキストフィールドを追加
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new item"
+            textField = alertTextField
+        }
+
+        alert.addAction(action)
+
+        present(alert, animated: true, completion: nil)
     }
 
 }
