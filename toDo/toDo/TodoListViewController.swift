@@ -11,11 +11,12 @@ import UIKit
 class TodoListViewController: UITableViewController {
 
     var itemArray = [Item]()
-
-    let defaults =  UserDefaults.standard
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print(dataFilePath)
 
         let newItem = Item()
         newItem.title = "Find Mike"
@@ -25,7 +26,7 @@ class TodoListViewController: UITableViewController {
         newItem2.title = "Buy Eggos"
         itemArray.append(newItem2)
 
-//        if let items = defaults.array(forKey: "TodoListArray") as? [String] {
+//        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
 //            itemArray = items
 //        }
 
@@ -59,7 +60,7 @@ class TodoListViewController: UITableViewController {
         // 選択したセルがチェックされていればチェックを外す。チェックされていなければチェックする。
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
 
-        tableView.reloadData()
+        saveItems()
 
         // セルが選択された後、選択状態が解除されるようにする
         tableView.deselectRow(at: indexPath, animated: true)
@@ -81,10 +82,7 @@ class TodoListViewController: UITableViewController {
 
             self.itemArray.append(newItem)
 
-            // UserDefaultsにitemArrayを保存
-            self.defaults.set(self.itemArray, forKey: "TodoListArray")
-
-            self.tableView.reloadData()
+            self.saveItems()
         }
 
         // Alertにテキストフィールドを追加
@@ -96,6 +94,23 @@ class TodoListViewController: UITableViewController {
         alert.addAction(action)
 
         present(alert, animated: true, completion: nil)
+    }
+
+    //MARK: Model Manupulation Methods
+
+    func saveItems() {
+        let encoder = PropertyListEncoder()
+
+        do {
+            // itemArrayをエンコードする
+            let data = try encoder.encode(itemArray)
+            // エンコードしたデータをファイルに書き込む
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding item array, \(error)")
+        }
+
+        self.tableView.reloadData()
     }
 
 }

@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // アプリの起動時に呼び出されるメソッド
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
-
         return true
     }
 
