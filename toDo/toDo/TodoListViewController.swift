@@ -49,8 +49,11 @@ class TodoListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        context.delete(itemArray[indexPath.row])
+        itemArray.remove(at: indexPath.row)
+
         // 選択したセルがチェックされていればチェックを外す。チェックされていなければチェックする。
-        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+//        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
 
         saveItems()
 
