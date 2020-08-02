@@ -16,6 +16,7 @@
 		204C50B324C605C00013885F /* toDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C50B224C605C00013885F /* toDoTests.swift */; };
 		204C50BE24C605C00013885F /* toDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C50BD24C605C00013885F /* toDoUITests.swift */; };
 		204C50F224D1A9730013885F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 204C50F024D1A9730013885F /* DataModel.xcdatamodeld */; };
+		204C50F424D6ED6F0013885F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C50F324D6ED6F0013885F /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		204C50BD24C605C00013885F /* toDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoUITests.swift; sourceTree = "<group>"; };
 		204C50BF24C605C00013885F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		204C50F124D1A9730013885F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		204C50F324D6ED6F0013885F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				204C509B24C605BC0013885F /* AppDelegate.swift */,
 				204C509D24C605BC0013885F /* SceneDelegate.swift */,
 				204C509F24C605BC0013885F /* TodoListViewController.swift */,
+				204C50F324D6ED6F0013885F /* CategoryViewController.swift */,
 				204C50A124C605BC0013885F /* Main.storyboard */,
 				204C50A424C605C00013885F /* Assets.xcassets */,
 				204C50A624C605C00013885F /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				204C50F424D6ED6F0013885F /* CategoryViewController.swift in Sources */,
 				204C50F224D1A9730013885F /* DataModel.xcdatamodeld in Sources */,
 				204C50A024C605BC0013885F /* TodoListViewController.swift in Sources */,
 				204C509C24C605BC0013885F /* AppDelegate.swift in Sources */,
