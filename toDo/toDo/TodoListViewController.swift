@@ -24,7 +24,7 @@ class TodoListViewController: UITableViewController {
 
     }
 
-    //MARK: Tableview Datasource Methods
+    //MARK: - Tableview Datasource Methods
 
     // 行数を指定するメソッド（必須）
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,7 +45,7 @@ class TodoListViewController: UITableViewController {
         return cell
     }
 
-    //MARK: Tableview Delegate Methods
+    //MARK: - Tableview Delegate Methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -61,7 +61,7 @@ class TodoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    // MARK: 新しいタスクの追加
+    // MARK: - Add New Item
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
 
@@ -93,7 +93,7 @@ class TodoListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    //MARK: Model Manupulation Methods
+    //MARK: - Model Manupulation Methods
 
     func saveItems() {
 
