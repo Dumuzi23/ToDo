@@ -8,6 +8,7 @@ target 'toDo' do
 
 pod 'RealmSwift'
 pod 'SwipeCellKit'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
 
   target 'toDoTests' do
     inherit! :search_paths
